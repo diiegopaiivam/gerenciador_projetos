@@ -8,7 +8,17 @@ require __DIR__.'/settings/containers.php';
 require __DIR__.'/settings/routes.php';
 
 try {
-    echo $router->run();
+    $result = $router->run();
+    $response = new App\Response;
+
+    $params = [
+        'container' => $container,
+        'params' => $result['params'],
+    ];
+
+    $response($result['action'], $params);
+
+
 } catch(\App\Exceptions\HttpException $e) {
     echo $e->getMessage();
 }
