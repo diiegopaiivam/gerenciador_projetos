@@ -4,10 +4,14 @@ use Pimple\Container;
 
 $container = new Container();
 
+$container['events'] = function(){
+    return new Zend\EventManager\EventManager;
+};
+
 $container['db'] = function(){
     $dsn = 'mysql:host=localhost;dbname=gerencia_projet';
     $username = 'root';
-    $password = 'admin';
+    $password = '';
     $options = [
         \PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'
     ];

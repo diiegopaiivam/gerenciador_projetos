@@ -5,20 +5,12 @@ require __DIR__.'/vendor/autoload.php';
 $router = new App\Router;
 
 require __DIR__.'/settings/containers.php';
+
+require __DIR__.'/settings/events.php';
 require __DIR__.'/settings/routes.php';
 
-try {
-    $result = $router->run();
-    $response = new App\Response;
+$app = new App\App($router, $container);
 
-    $params = [
-        'container' => $container,
-        'params' => $result['params'],
-    ];
+require __DIR__.'/settings/middlewares.php';
 
-    $response($result['action'], $params);
-
-
-} catch(\App\Exceptions\HttpException $e) {
-    echo $e->getMessage();
-}
+$app->run();
