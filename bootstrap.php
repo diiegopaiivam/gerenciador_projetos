@@ -1,9 +1,8 @@
 <?php 
 
 $composer = require __DIR__.'/vendor/autoload.php';
-$modules = [
-    __DIR__ . '/app/Module.php' => 'App\Module'
-];
+
+require __DIR__ . '/config/modules.php';
 
 $app = new App\App($composer, $modules);
 
