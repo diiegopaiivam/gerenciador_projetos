@@ -5,6 +5,7 @@ namespace App;
 use App\Modules\Contract;
 
 class Module implements Contract {
+    
     public function getNamespaces() :array {
 
         return [
