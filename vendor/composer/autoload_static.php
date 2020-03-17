@@ -29,10 +29,6 @@ class ComposerStaticInit464931db88e18e14052b51c9590cbec3
         array (
             'Psr\\Container\\' => 14,
         ),
-        'C' => 
-        array (
-            'Config\\' => 7,
-        ),
         'A' => 
         array (
             'App\\' => 4,
@@ -67,10 +63,6 @@ class ComposerStaticInit464931db88e18e14052b51c9590cbec3
         'Psr\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
-        ),
-        'Config\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/config',
         ),
         'App\\' => 
         array (

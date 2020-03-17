@@ -13,6 +13,5 @@ return array(
     'Symfony\\Component\\Mime\\' => array($vendorDir . '/symfony/mime'),
     'Symfony\\Component\\HttpFoundation\\' => array($vendorDir . '/symfony/http-foundation'),
     'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
-    'Config\\' => array($baseDir . '/config'),
     'App\\' => array($baseDir . '/src'),
 );

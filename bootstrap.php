@@ -1,16 +1,10 @@
 <?php 
 
-require __DIR__.'/vendor/autoload.php';
+$composer = require __DIR__.'/vendor/autoload.php';
+$modules = [
+    __DIR__ . '/app/Module.php' => 'App\Module'
+];
 
-$router = new App\Router;
-
-require __DIR__.'/settings/containers.php';
-
-require __DIR__.'/settings/events.php';
-require __DIR__.'/settings/routes.php';
-
-$app = new App\App($router, $container);
-
-require __DIR__.'/settings/middlewares.php';
+$app = new App\App($composer, $modules);
 
 $app->run();
