@@ -8,8 +8,8 @@ class UserController {
 
     public function index($container, $request){
         
-    $user = new Users($container);
-    return $user->all();
+        $user = new Users($container);
+        return $user->all();
        
     }
 
@@ -27,12 +27,14 @@ class UserController {
     
     }
 
-    public function update(){
-       
+    public function update($container, $request){
+        $user = new Users($container);
+        return $user->update($request->attributes->get(1), $request->request->all());
     }
 
-    public function delete(){
-
+    public function delete($container, $request){
+        $user = new Users($container);
+        return $user->delete($request->attributes->get(1));
     }
 
 }
