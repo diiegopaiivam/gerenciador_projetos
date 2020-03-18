@@ -3,6 +3,7 @@
 namespace Config\Models;
 
 use Pimple\Container;
+use App\QueryBuilder;
 
 class Users {
 
@@ -32,8 +33,11 @@ class Users {
 
         $sql = 'INSERT INTO `users` (`name`) VALUES (?)';
 
-        $stmt = $this->db->prepare($sql);
-        $stmt->execute(array_values($data));
+        $queryBuilder = new QueryBuilder;
+        $query = $queryBuilder->insert('users', $data)->getData();
+
+        $stmt = $this->db->prepare($query->sql);
+        $stmt->execute($query->bind);
 
         $result = $this->get($this->db->lastInsertId());
 
